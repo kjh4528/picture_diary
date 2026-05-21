@@ -12,4 +12,5 @@ outputs/
 *.jpg
 *.jpeg
 *.7z
+*.pth
 
