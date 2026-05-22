@@ -25,6 +25,15 @@ ANGLES = ['eye_level', 'low angle', 'high angle'] # 기본, 올려보기, 내려
 # 조명 3종
 LIGHTING_SETUPS = ['key light','fill light', 'back light'] # 주광, 보조광, 후면광 
 
+# 렌즈 
+LENSES = ['24mm wide', '50mm portrait', '85mm tight', '200mm', '400mm'] # 광각, 표준, 망원 ...
+
+# 심도
+DEPTHS = ['shallow depth of field', 'bokeh background', 'deep focus, sharp background']
+
+# 구도
+COMPOSITIONS = ['rule of thirds','centered composition', 'negative space, minimalist']
+
 # 최종 프롬프트 조합 
 prompt = f'{APPEARANCE}, {SHOT_SIZES["BS"][0]}, {ANGLES[0]},{LIGHTING_SETUPS[0]}' 
 print('최종 프롬프트: ', prompt) 
