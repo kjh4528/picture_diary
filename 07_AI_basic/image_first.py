@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # API KEY 로드 확인
 load_dotenv()
 api_key : str|None = os.getenv('OPENAI_API_KEY')
-print(f'[환경확인] OPENAI_API_KEY: {'loaded' if api_key else "키 없음"}')
+print(f'[환경확인] OPENAI_API_KEY: {"loaded" if api_key else "키 없음"}')
 
 # OpenAI 클라이언트 초기화(키 자동 탐지)
 client = OpenAI()
@@ -27,20 +27,22 @@ response = client.images.generate(
     model="gpt-image-1",
     prompt=ARIA_BS_PROMPT,
     size="1024x1024",
-    n=1
+    quality='low',
+    n=1,
+    output_format= 'png' # gpt-image 모델은 항상 base64 반환
 )
 
-if not response.data:
-    raise RuntimeError('비어 있음')
+# 응답 구조 확인: b64_json 구조
+image_b64 = response.data[0].b64_json
+print(f'[응답구조] response.data[0].b64_json={image_b64[:60]}...')
 
-image_data = response.data[0]
-
-# b64_json 에서 PNG 저장
+# Base64 디코딩 후 저장 
 output_dir = Path("outputs")
 output_dir.mkdir(exist_ok=True)
+image_bytes = base64.b64decode(image_b64)
 
-image_bytes = base64.b64decode(image_data.b64_json)
-# {"이미지": "베이스64"}
+
+# 이미지 저장 
 output_path = output_dir / "aria_v1.png"
 output_path.write_bytes(image_bytes)
 
