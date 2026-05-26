@@ -33,8 +33,8 @@ def extract_scenes(diary_text: str) -> list[dict]:
     response = client.chat.completions.create(
         model = 'gpt-4o-mini',
         messages=[
-            {'role':'system', 'content': 'SYSTEM_PROMPT'},
-            {'role':'user', 'content':'diary_text'}
+            {'role':'system', 'content': SYSTEM_PROMPT},
+            {'role':'user', 'content':diary_text}
         ],
         response_format= {'type':'json_object'},
         temperature= 0.7,
@@ -49,4 +49,34 @@ def validate_scenes(scenes: list[dict]) -> list[str]:
     errors : list[str] = []
     if len(scenes) != 4:
         errors.append(f'장면 수 오류: {len(scenes)}개 (총 4개 필요)')
+
     required_fields = {'scene_id', 'scene_kr','prompt_en'}
+
+    for i, scene in enumerate(scenes, start=1):
+        missing = required_fields - set(scene.keys())
+
+        if missing:
+            errors.append(f"{i}번째 장면에 빠진 필드: {missing}")
+
+    return errors
+
+if __name__ == "__main__":
+    diary_text = """
+    오늘은 비가 오는 오후에 카페 창가에 앉아 오래된 지도를 보았다.
+    지도에는 낯선 마을과 숲길이 그려져 있었고,
+    나는 그곳에 가면 어떤 일이 생길지 상상했다.
+    """
+
+    data = extract_scenes(diary_text)
+    scenes = data.get("scenes", [])
+
+    errors = validate_scenes(scenes)
+
+    if errors:
+        print("검증 오류:")
+        for error in errors:
+            print("-", error)
+    else:
+        print("검증 통과!")
+
+    print(json.dumps(data, ensure_ascii=False, indent=2))
