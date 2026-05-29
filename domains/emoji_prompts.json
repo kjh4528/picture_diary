@@ -1,0 +1,46 @@
+{
+  "domain": "emoji",
+  "version": "day5",
+  "prompt_style": {
+    "shot": "close-up",
+    "angle": "eye-level",
+    "lighting": "soft lighting",
+    "lens_or_style": "flat illustration",
+    "mood": "cute, expressive"
+  },
+  "scenes": [
+    {
+      "id": "scene_01",
+      "diary_sentence": "오늘 너무 행복했다.",
+      "visual_focus": "happy emoji character",
+      "prompt_addons": [
+        "cute illustration",
+        "white background",
+        "simple style"
+      ],
+      "negative_prompt": "text, watermark, blurry"
+    },
+    {
+      "id": "scene_02",
+      "diary_sentence": "시험 결과가 나빠서 너무 슬펐다.",
+      "visual_focus": "sad emoji character",
+      "prompt_addons": [
+        "teary eyes",
+        "white background",
+        "simple style"
+      ],
+      "negative_prompt": "text, watermark, blurry"
+    },
+    {
+      "id": "scene_03",
+      "diary_sentence": "깜짝 선물을 받아서 놀랐다.",
+      "visual_focus": "surprised emoji character",
+      "prompt_addons": [
+        "wide eyes",
+        "white background",
+        "simple style"
+      ],
+      "negative_prompt": "text, watermark, blurry"
+    }
+  ]
+}
