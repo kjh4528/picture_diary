@@ -1,0 +1,34 @@
+{
+  "domain": "product",
+  "version": "day5",
+  "prompt_style": {
+    "shot": "close-up",
+    "angle": "eye-level",
+    "lighting": "studio lighting",
+    "lens_or_style": "50mm macro lens",
+    "mood": "clean, professional"
+  },
+  "scenes": [
+    {
+      "id": "scene_01",
+      "diary_sentence": "오늘 새 무선 이어폰을 샀다.",
+      "visual_focus": "wireless earbuds",
+      "prompt_addons": ["product photography", "clean white background", "soft shadows"],
+      "negative_prompt": "text, watermark, blurry"
+    },
+    {
+      "id": "scene_02",
+      "diary_sentence": "책상 위에 올려둔 미니멀 탁상시계가 눈에 들어왔다.",
+      "visual_focus": "minimalist desk clock",
+      "prompt_addons": ["product photography", "light wood surface", "natural light"],
+      "negative_prompt": "text, watermark, blurry"
+    },
+    {
+      "id": "scene_03",
+      "diary_sentence": "새로 산 보온 텀블러로 커피를 마셨다.",
+      "visual_focus": "insulated tumbler with coffee",
+      "prompt_addons": ["product photography", "warm cafe background", "steam effect"],
+      "negative_prompt": "text, watermark, blurry"
+    }
+  ]
+}
