@@ -1,0 +1,12 @@
+[project]
+name = "08-prompt-basic"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic==0.104.0",
+    "openai==2.29.0",
+    "openai-agents==0.17.3",
+    "python-dotenv>=1.2.2",
+]
