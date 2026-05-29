@@ -1,11 +1,7 @@
-*.png
-*.jpg
 .venv/
-.vscode/
-__pycache__/
-*.pyc
 .env
-.ipynb_checkpoints/
-*.db
-*.csv
-*.docx
+outputs/
+__pycache__/
+*.png
+*.pyc
+*.mp4
